@@ -1,554 +1,603 @@
-$mainColor: #22232c;
-$textColor: #c1c2c5;
-$mainFont: Roboto;
+// Definición de colores y fuentes
+$mainColor: #c45151; // Color principal oscuro
+$textColor: #d3d3d3; // Color del texto claro
+$mainFont: 'Roboto'; // Fuente principal
 
-$secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343F;
-$secondaryColorLight: rgba(0, 0, 0, 0.5);
-$secondaryColorDark: rgba(12, 12, 12, 0.8);
+// Colores secundarios
+$secondaryColor: rgba(36, 31, 31, 0.4); // Color secundario con opacidad
+$secondaryColorHighlight: #8B0000; // Color de resaltado secundario (rojo oscuro)
+$secondaryColorLight: rgba(0, 0, 0, 0.5); // Color secundario claro
+$secondaryColorDark: rgba(12, 12, 12, 0.8); // Color secundario oscuro
 
-$gridCols: 5;
-$gridRows: 5;
-$gridSize: 10.2vh;
-$gridGap: 2px;
-$containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
+// Configuración de la cuadrícula
+$gridCols: 5; // Número de columnas en la cuadrícula
+$gridRows: 5; // Número de filas en la cuadrícula
+$gridSize: 10.2vh; // Tamaño de cada celda de la cuadrícula
+$gridGap: 2px; // Espaciado entre celdas
+$containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap}); // Tamaño del contenedor
 
+// Estilos del cuerpo
 body {
-  margin: 0;
+  margin: 0; // Sin margen
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  background: none !important;
-  overflow: hidden !important;
-  user-select: none;
+    'Droid Sans', 'Helvetica Neue', sans-serif; // Fuentes del sistema
+  -webkit-font-smoothing: antialiased; // Suavizado de fuentes en WebKit
+  -moz-osx-font-smoothing: grayscale; // Suavizado de fuentes en Firefox
+  height: 100vh; // Altura del cuerpo
+  background: none !important; // Sin fondo
+  overflow: hidden !important; // Sin desplazamiento
+  user-select: none; // Sin selección de texto
 }
 
+// Estilos para el contenedor raíz
 #root {
-  height: 100%;
+  height: 100%; // Altura del contenedor raíz
 }
 
+// Estilos para el elemento de código
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; // Fuente para código
 }
 
+// Estilos para la barra de desplazamiento en WebKit
 ::-webkit-scrollbar {
-  display: none;
+  display: none; // Ocultar la barra de desplazamiento
 }
 
+// Estilos para párrafos
 p {
-  margin: 0;
-  padding: 0;
-  font-family: $mainFont;
+  margin: 0; // Sin margen
+  padding: 0; // Sin padding
+  font-family: $mainFont; // Fuente principal
 }
 
+// Estilos para los inputs de tipo número
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none; // Sin apariencia predeterminada
+  -moz-appearance: none; // Sin apariencia predeterminada
+  appearance: none; // Sin apariencia predeterminada
 }
 
+// Estilos para el contenedor de la aplicación
 .app-wrapper {
-  height: 100%;
-  width: 100%;
-  color: white;
+  height: 100%; // Altura del contenedor de la aplicación
+  width: 100%; // Ancho del contenedor de la aplicación
+  color: rgb(255, 255, 255); // Color del texto
 }
 
+// Estilos para la lista del menú contextual
 .context-menu-list {
-  min-width: 200px;
-  background-color: $mainColor;
-  color: $textColor;
-  padding: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
-  border-radius: 4px;
-  outline: none;
-  display: flex;
-  flex-direction: column;
+  min-width: 200px; // Ancho mínimo
+  background-color: $mainColor; // Color de fondo
+  color: $textColor; // Color del texto
+  padding: 4px; // Padding
+  border-color: rgba(0, 0, 0, 0.2); // Color del borde
+  border-style: inset; // Estilo del borde
+  border-width: 1px; // Ancho del borde
+  border-radius: 4px; // Bordes redondeados
+  outline: none; // Sin contorno
+  display: flex; // Usar flexbox
+  flex-direction: column; // Dirección de los elementos
 }
 
+// Estilos para los elementos del menú contextual
 .context-menu-item  {
-  padding: 8px;
-  border-radius: 4px;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: $textColor;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 8px; // Padding
+  border-radius: 4px; // Bordes redondeados
+  background-color: transparent; // Fondo transparente
+  outline: none; // Sin contorno
+  border: none; // Sin borde
+  color: $textColor; // Color del texto
+  display: flex; // Usar flexbox
+  justify-content: space-between; // Espaciado entre elementos
+  align-items: center; // Alinear elementos al centro
   &:active {
-    transform: none;
+    transform: none; // Sin transformación al hacer clic
   }
   &:hover {
-    background-color: $secondaryColorHighlight;
-    cursor: pointer;
+    background-color: $secondaryColorHighlight; // Fondo al pasar el ratón
+    cursor: pointer; // Cambiar cursor al pasar el ratón
   }
 }
 
+// Estilos para la descripción de la herramienta
 .tooltip-description {
-  padding-top: 5px;
+  padding-top: 5px; // Padding superior
 }
 
+// Estilos para los párrafos dentro del tooltip de markdown
 .tooltip-markdown > p {
-  margin: 0;
+  margin: 0; // Sin margen
 }
 
+// Estilos para el botón activo
 button:active {
-  transform: translateY(3px);
+  transform: translateY(3px); // Desplazamiento al hacer clic
 }
 
+// Estilos para la vista previa de arrastre de elementos
 .item-drag-preview {
-  width: 7.7vh;
-  height: 7.7vh;
-  z-index: 1;
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 7vh;
-  image-rendering: -webkit-optimize-contrast;
+  width: 7.7vh; // Ancho de la vista previa
+  height: 7.7vh; // Altura de la vista previa
+  z-index: 1; // Z-index
+  position: fixed; // Posición fija
+  pointer-events: none; // Sin eventos de puntero
+  top: 0; // Posición superior
+  left: 0; // Posición izquierda
+  background-repeat: no-repeat; // Sin repetición de fondo
+  background-position: center; // Centrar fondo
+  background-size: 7vh; // Tamaño del fondo
+  image-rendering: -webkit-optimize-contrast; // Mejora de contraste de imágenes
 }
 
+// Estilos para el contenedor del inventario
 .inventory-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  gap: 20px;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: center; // Centrar elementos
+  align-items: center; // Alinear elementos al centro
+  height: 100%; // Altura del contenedor
+  gap: 20px; // Espaciado entre elementos
 }
 
+// Estilos para el control del inventario
 .inventory-control {
-  display: flex;
+  display: flex; // Usar flexbox
 
   .inventory-control-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+    display: flex; // Usar flexbox
+    flex-direction: column; // Dirección de los elementos
+    gap: 20px; // Espaciado entre elementos
+    justify-content: center; // Centrar elementos
+    align-items: center; // Alinear elementos al centro
   }
 
+  // Estilos para los inputs de control del inventario
   .inventory-control-input {
-    transition: 200ms;
-    padding: 16px 8px;
-    border-radius: 2.5%;
-    font-family: $mainFont;
-    font-size: 16px;
-    text-align: center;
-    outline: none;
-    border: none;
-    color: #fff;
-    background-color: $secondaryColor;
+    transition: 200ms; // Transición de 200 ms
+    padding: 16px 8px; // Padding
+    border-radius: 2.5%; // Bordes redondeados
+    font-family: $mainFont; // Fuente principal
+    font-size: 16px; // Tamaño de fuente
+    text-align: center; // Alinear texto al centro
+    outline: none; // Sin contorno
+    border: none; // Sin borde
+    color: #fff; // Color del texto
+    background-color: $secondaryColor; // Color de fondo
     &:focus-within {
-      background-color: $secondaryColorDark;
+      background-color: $secondaryColorDark; // Fondo al enfocar
     }
   }
 
+  // Estilos para los botones de control del inventario
   .inventory-control-button {
-    font-size: 14px;
-    color: #fff;
-    background-color: $secondaryColor;
-    transition: 200ms;
-    padding: 12px 8px;
-    border-radius: 2.5%;
-    border: none;
-    text-transform: uppercase;
-    font-family: $mainFont;
-    width: 100%;
-    font-weight: 500;
+    font-size: 14px; // Tamaño de fuente
+    color: #fff; // Color del texto
+    background-color: $secondaryColor; // Color de fondo
+    transition: 200ms; // Transición de 200 ms
+    padding: 12px 8px; // Padding
+    border-radius: 2.5%; // Bordes redondeados
+    border: none; // Sin borde
+    text-transform: uppercase; // Texto en mayúsculas
+    font-family: $mainFont; // Fuente principal
+    width: 100%; // Ancho completo
+    font-weight: 500; // Peso de fuente
     &:hover {
-      background-color: $secondaryColorDark;
+      background-color: $secondaryColorDark; // Fondo al pasar el ratón
     }
   }
 }
 
+// Estilos para el diálogo de controles útiles
 .useful-controls-dialog {
-  background-color: $mainColor;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: $textColor;
-  width: 450px;
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  border-radius: 4px;
-  gap: 16px;
+  background-color: $mainColor; // Color de fondo
+  position: absolute; // Posición absoluta
+  top: 50%; // Centrar verticalmente
+  left: 50%; // Centrar horizontalmente
+  transform: translate(-50%, -50%); // Transformación para centrar
+  color: $textColor; // Color del texto
+  width: 450px; // Ancho del diálogo
+  display: flex; // Usar flexbox
+  flex-direction: column; // Dirección de los elementos
+  padding: 16px; // Padding
+  border-radius: 4px; // Bordes redondeados
+  gap: 16px; // Espaciado entre elementos
 }
 
+// Estilos para la superposición del diálogo
 .useful-controls-dialog-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); // Color de fondo con opacidad
 }
 
+// Estilos para el título del diálogo
 .useful-controls-dialog-title {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
+  display: flex; // Usar flexbox
+  width: 100%; // Ancho completo
+  justify-content: space-between; // Espaciado entre elementos
+  align-items: center; // Alinear elementos al centro
+  font-size: 18px; // Tamaño de fuente
 }
 
+// Estilos para el botón de cerrar del diálogo
 .useful-controls-dialog-close {
-  width: 25px;
-  height: 25px;
-  padding: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  fill: $textColor;
+  width: 25px; // Ancho del botón
+  height: 25px; // Altura del botón
+  padding: 6px; // Padding
+  display: flex; // Usar flexbox
+  justify-content: center; // Centrar elementos
+  align-items: center; // Alinear elementos al centro
+  border-radius: 4px; // Bordes redondeados
+  fill: $textColor; // Color de relleno
   &:hover {
-    background-color: $secondaryColorHighlight;
-    cursor: pointer;
+    background-color: $secondaryColorHighlight; // Fondo al pasar el ratón
+    cursor: pointer; // Cambiar cursor al pasar el ratón
   }
 }
 
+// Estilos para el contenedor de contenido del diálogo
 .useful-controls-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: flex; // Usar flexbox
+  flex-direction: column; // Dirección de los elementos
+  gap: 20px; // Espaciado entre elementos
 }
 
+// Estilos para el divisor
 .divider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
+  width: 100%; // Ancho completo
+  height: 1px; // Altura del divisor
+  background-color: rgba(255, 255, 255, 0.12); // Color de fondo
 }
 
+// Estilos para el botón de controles útiles
 .useful-controls-button {
-  position: absolute !important;
-  bottom: 25px;
-  right: 25px;
-  transition: 200ms !important;
-  border: none;
-  color: white;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: white;
-  border-radius: 5% !important;
-  background-color: $secondaryColor !important;
+  position: absolute !important; // Posición absoluta
+  bottom: 25px; // Posición inferior
+  right: 25px; // Posición derecha
+  transition: 200ms !important; // Transición de 200 ms
+  border: none; // Sin borde
+  color: white; // Color del texto
+  width: 52px; // Ancho del botón
+  height: 52px; // Altura del botón
+  display: flex; // Usar flexbox
+  justify-content: center; // Centrar elementos
+  align-items: center; // Alinear elementos al centro
+  fill: white; // Color de relleno
+  border-radius: 5% !important; // Bordes redondeados
+  background-color: $secondaryColor !important; // Color de fondo
   &:hover {
-    background-color: $secondaryColorDark !important;
-    cursor: pointer;
+    background-color: $secondaryColorDark !important; // Fondo al pasar el ratón
+    cursor: pointer; // Cambiar cursor al pasar el ratón
   }
 }
 
+// Estilos para el botón de salida de controles útiles
 .useful-controls-exit-button {
-  position: absolute !important;
-  right: 8px;
-  top: 8px;
-  border-radius: 2.5% !important;
-  color: grey !important;
+  position: absolute !important; // Posición absoluta
+  right: 8px; // Posición derecha
+  top: 8px; // Posición superior
+  border-radius: 2.5% !important; // Bordes redondeados
+  color: grey !important; // Color del texto
 }
 
-// Dialog is used fro useful controls window
+// Diálogo utilizado para la ventana de controles útiles
 
-
-// inventory grids
+// Estilos para las cuadrículas del inventario
 .inventory-grid-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: calc($gridGap * 2);
+  display: flex; // Usar flexbox
+  flex-direction: column; // Dirección de los elementos
+  gap: calc($gridGap * 2); // Espaciado entre elementos
 }
+
+// Estilos para el encabezado de la cuadrícula del inventario
 .inventory-grid-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: space-between; // Espaciado entre elementos
   p {
-    font-size: 16px;
+    font-size: 16px; // Tamaño de fuente
   }
 }
 
+// Estilos para el contenedor de la cuadrícula del inventario
 .inventory-grid-container {
-  display: grid;
-  height: $containerSize;
-  grid-template-columns: repeat($gridCols, $gridSize);
-  grid-auto-rows: $gridSize + 0.22vh;
-  gap: $gridGap;
-  overflow-y: scroll;
+  display: grid; // Usar cuadrícula
+  height: $containerSize; // Altura del contenedor
+  grid-template-columns: repeat($gridCols, $gridSize); // Definir columnas
+  grid-auto-rows: $gridSize + 0.22vh; // Definir filas
+  gap: $gridGap; // Espaciado entre celdas
+  overflow-y: scroll; // Desplazamiento vertical
 }
 
-// inventory slots
+// Estilos para las ranuras del inventario
 .inventory-slot {
-  background-color: $secondaryColor;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 2.5%;
-  image-rendering: -webkit-optimize-contrast;
-  position: relative;
-  background-size: 7vh;
-  color: $textColor;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
+  background-color: $secondaryColor; // Color de fondo
+  background-repeat: no-repeat; // Sin repetición de fondo
+  background-position: center; // Centrar fondo
+  border-radius: 2.5%; // Bordes redondeados
+  image-rendering: -webkit-optimize-contrast; // Mejora de contraste de imágenes
+  position: relative; // Posición relativa
+  background-size: 7vh; // Tamaño del fondo
+  color: $textColor; // Color del texto
+  border-color: rgba(0, 0, 0, 0.2); // Color del borde
+  border-style: inset; // Estilo del borde
+  border-width: 1px; // Ancho del borde
 }
 
+// Estilos para la caja de etiqueta de la ranura del inventario
 .inventory-slot-label-box {
-  background-color: $mainColor;
-  color: $textColor;
-  text-align: center;
-  border-bottom-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  border-top-color: rgba(0, 0, 0, 0.2);
-  border-top-style: inset;
-  border-top-width: 1px;
+  background-color: $mainColor; // Color de fondo
+  color: $textColor; // Color del texto
+  text-align: center; // Alinear texto al centro
+  border-bottom-left-radius: 0.25vh; // Bordes redondeados
+  border-bottom-right-radius: 0.25vh; // Bordes redondeados
+  border-top-color: rgba(0, 0, 0, 0.2); // Color del borde superior
+  border-top-style: inset; // Estilo del borde superior
+  border-top-width: 1px; // Ancho del borde superior
 }
 
+// Estilos para el texto de la etiqueta de la ranura del inventario
 .inventory-slot-label-text {
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 2px 3px;
-  font-weight: 400;
-  font-family: $mainFont;
-  font-size: 12px;
+  text-transform: uppercase; // Texto en mayúsculas
+  white-space: nowrap; // Sin salto de línea
+  overflow: hidden; // Ocultar desbordamiento
+  text-overflow: ellipsis; // Mostrar puntos suspensivos si hay desbordamiento
+  padding: 2px 3px; // Padding
+  font-weight: 400; // Peso de fuente
+  font-family: $mainFont; // Fuente principal
+  font-size: 12px; // Tamaño de fuente
 }
 
+// Estilos para el número de la ranura del inventario
 .inventory-slot-number {
-  background-color: white;
-  color: black;
-  height: 12px;
-  border-top-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  padding: 3px;
-  font-size: 12px;
-  font-family: $mainFont;
+  background-color: white; // Color de fondo
+  color: black; // Color del texto
+  height: 12px; // Altura
+  border-top-left-radius: 0.25vh; // Bordes redondeados
+  border-bottom-right-radius: 0.25vh; // Bordes redondeados
+  padding: 3px; // Padding
+  font-size: 12px; // Tamaño de fuente
+  font-family: $mainFont; // Fuente principal
 }
 
+// Estilos para el contenedor de la ranura de elementos
 .item-slot-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  display: flex; // Usar flexbox
+  flex-direction: column; // Dirección de los elementos
+  justify-content: space-between; // Espaciado entre elementos
+  height: 100%; // Altura completa
   p {
-    font-size: 12px;
+    font-size: 12px; // Tamaño de fuente
   }
 }
 
+// Estilos para el encabezado de la ranura de elementos
 .item-slot-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: flex-end; // Alinear a la derecha
 }
 
+// Estilos para el encabezado de la ranura de elementos calientes
 .item-hotslot-header-wrapper {
-  @extend .item-slot-header-wrapper;
-  justify-content: space-between !important;
+  @extend .item-slot-header-wrapper; // Extender estilos
+  justify-content: space-between !important; // Espaciado entre elementos
 }
 
+// Estilos para la información de la ranura de elementos
 .item-slot-info-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-self: flex-end;
-  padding: 3px;
-  gap: 3px;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  align-self: flex-end; // Alinear al final
+  padding: 3px; // Padding
+  gap: 3px; // Espaciado entre elementos
   p {
-    font-size: 12px;
+    font-size: 12px; // Tamaño de fuente
   }
 }
 
+// Estilos para la ranura de moneda
 .item-slot-currency-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 3px;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: flex-end; // Alinear a la derecha
+  align-items: center; // Alinear elementos al centro
+  padding-right: 3px; // Padding a la derecha
   p {
-    font-size: 14px;
-    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
+    font-size: 14px; // Tamaño de fuente
+    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7); // Sombra de texto
   }
 }
 
+// Estilos para la ranura de precio
 .item-slot-price-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 3px;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: flex-end; // Alinear a la derecha
+  padding-right: 3px; // Padding a la derecha
   p {
-    font-size: 14px;
-    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
+    font-size: 14px; // Tamaño de fuente
+    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7); // Sombra de texto
   }
 }
 
-
+// Estilos para el contenedor de tooltip
 .tooltip-wrapper {
-  pointer-events: none;
-  display: flex;
-  background-color: $mainColor;
-  width: 200px;
-  padding: 8px;
-  flex-direction: column;
-  min-width: 200px;
-  color: $textColor;
-  font-family: $mainFont;
-  border-radius: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
+  pointer-events: none; // Sin eventos de puntero
+  display: flex; // Usar flexbox
+  background-color: $mainColor; // Color de fondo
+  width: 200px; // Ancho del tooltip
+  padding: 8px; // Padding
+  flex-direction: column; // Dirección de los elementos
+  min-width: 200px; // Ancho mínimo
+  color: $textColor; // Color del texto
+  font-family: $mainFont; // Fuente principal
+  border-radius: 4px; // Bordes redondeados
+  border-color: rgba(0, 0, 0, 0.2); // Color del borde
+  border-style: inset; // Estilo del borde
+  border-width: 1px; // Ancho del borde
   p {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 12px; // Tamaño de fuente
+    font-weight: 400; // Peso de fuente
   }
 }
 
+// Estilos para el encabezado del tooltip
 .tooltip-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: space-between; // Espaciado entre elementos
+  align-items: center; // Alinear elementos al centro
   p {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 15px; // Tamaño de fuente
+    font-weight: 400; // Peso de fuente
   }
 }
 
+// Estilos para la duración de la elaboración en el tooltip
 .tooltip-crafting-duration {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  align-items: center; // Alinear elementos al centro
+  justify-content: center; // Centrar elementos
   svg {
-    padding-right: 3px;
+    padding-right: 3px; // Padding a la derecha
   }
   p {
-    font-size: 14px;
+    font-size: 14px; // Tamaño de fuente
   }
 }
 
+// Estilos para los ingredientes en el tooltip
 .tooltip-ingredients {
-  padding-top: 5px;
+  padding-top: 5px; // Padding superior
 }
 
+// Estilos para cada ingrediente en el tooltip
 .tooltip-ingredient {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  align-items: center; // Alinear elementos al centro
   img {
-    width: 28px;
-    height: 28px;
-    padding-right: 5px;
+    width: 28px; // Ancho de la imagen
+    height: 28px; // Altura de la imagen
+    padding-right: 5px; // Padding a la derecha
   }
 }
 
-// hotbar
+// Estilos para la barra de acceso rápido
 .hotbar-container {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  justify-content: center;
-  width: 100%;
-  position: absolute;
-  bottom: 2vh;
+  display: flex; // Usar flexbox
+  align-items: center; // Alinear elementos al centro
+  gap: 2px; // Espaciado entre elementos
+  justify-content: center; // Centrar elementos
+  width: 100%; // Ancho completo
+  position: absolute; // Posición absoluta
+  bottom: 2vh; // Posición inferior
 }
 
+// Estilos para los slots de la barra de acceso rápido
 .hotbar-item-slot {
-  @extend .inventory-slot;
-  width: $gridSize;
-  height: $gridSize;
+  @extend .inventory-slot; // Extender estilos de ranura de inventario
+  width: $gridSize; // Ancho de la ranura
+  height: $gridSize; // Altura de la ranura
 }
 
+// Estilos para el encabezado de los slots de la barra de acceso rápido
 .hotbar-slot-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex; // Usar flexbox
+  flex-direction: row; // Dirección de los elementos
+  justify-content: space-between; // Espaciado entre elementos
 }
 
-// item notifications
-
+// Estilos para el contenedor de notificaciones de elementos
 .item-notification-container {
-  display: flex;
-  overflow-x: scroll;
-  flex-wrap: nowrap;
-  gap: 2px;
-  position: absolute;
-  bottom: 20vh;
-  left: 50%;
-  width: 100%;
-  margin-left: calc(50% - calc($gridSize/2));
-  transform: translate(-50%);
+  display: flex; // Usar flexbox
+  overflow-x: scroll; // Desplazamiento horizontal
+  flex-wrap: nowrap; // Sin ajuste de línea
+  gap: 2px; // Espaciado entre elementos
+  position: absolute; // Posición absoluta
+  bottom: 20vh; // Posición inferior
+  left: 50%; // Centrar horizontalmente
+  width: 100%; // Ancho completo
+  margin-left: calc(50% - calc($gridSize/2)); // Ajustar el margen
+  transform: translate(-50%); // Centrando el contenedor
 }
 
+// Estilos para la caja de acción de notificación de elementos
 .item-notification-action-box {
-  width: 100%;
-  color: $textColor;
-  background-color: $secondaryColor;
-  text-transform: uppercase;
-  text-align: center;
-  border-top-left-radius: 0.25vh;
-  border-top-right-radius: 0.25vh;
-  font-family: $mainFont;
+  width: 100%; // Ancho completo
+  color: $textColor; // Color del texto
+  background-color: $secondaryColor; // Color de fondo
+  text-transform: uppercase; // Texto en mayúsculas
+  text-align: center; // Alinear texto al centro
+  border-top-left-radius: 0.25vh; // Bordes redondeados
+  border-top-right-radius: 0.25vh; // Bordes redondeados
+  font-family: $mainFont; // Fuente principal
   p {
-    font-size: 11px;
-    padding: 2px;
-    font-weight: 600;
+    font-size: 11px; // Tamaño de fuente
+    padding: 2px; // Padding
+    font-weight: 600; // Peso de fuente
   }
 }
 
+// Estilos para la caja de elementos de notificación
 .item-notification-item-box {
-  @extend .inventory-slot;
-  height: $gridSize;
-  width: $gridSize;
+  @extend .inventory-slot; // Extender estilos de ranura de inventario
+  height: $gridSize; // Altura de la ranura
+  width: $gridSize; // Ancho de la ranura
 }
 
+// Estilos para la barra de durabilidad
 .durability-bar {
-  background: rgba(0, 0, 0, 0.5);
-  height: 3px;
-  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5); // Color de fondo
+  height: 3px; // Altura de la barra
+  overflow: hidden; // Ocultar desbordamiento
 }
 
+// Estilos para la barra de peso
 .weight-bar {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px inset rgba(0, 0, 0, 0.1);
-  height: 0.8vh;
-  border-radius: 5%;
-  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4); // Color de fondo
+  border: 1px inset rgba(0, 0, 0, 0.1); // Borde
+  height: 0.8vh; // Altura de la barra
+  border-radius: 5%; // Bordes redondeados
+  overflow: hidden; // Ocultar desbordamiento
 }
 
+// Estilos para la transición de entrada (fade)
 .transition-fade-enter {
-  opacity: 0;
+  opacity: 0; // Opacidad inicial
 }
 
 .transition-fade-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
+  opacity: 1; // Opacidad final
+  transition: opacity 200ms; // Transición de opacidad
 }
 
 .transition-fade-exit {
-  opacity: 1;
+  opacity: 1; // Opacidad inicial
 }
 
 .transition-fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+  opacity: 0; // Opacidad final
+  transition: opacity 200ms; // Transición de opacidad
 }
 
+// Estilos para la transición de deslizamiento hacia arriba (slide up)
 .transition-slide-up-enter {
-  transform: translateY(200px)
+  transform: translateY(200px); // Desplazamiento inicial
 }
 
 .transition-slide-up-enter-active {
-  transform: translateY(0px);
-  transition: all 200ms;
+  transform: translateY(0); // Restablecer el desplazamiento a 0
+  transition: transform 200ms; // Transición de transformación
 }
 
 .transition-slide-up-exit {
-  transform: translateY(0px);
+  transform: translateY(0); // Posición inicial al salir
 }
 
 .transition-slide-up-exit-active {
-  transform: translateY(200px);
-  transition: all 200ms;
+  transform: translateY(-200px); // Desplazarse hacia arriba al salir
+  transition: transform 200ms; // Transición de transformación
 }
